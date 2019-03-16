@@ -72,6 +72,7 @@ public class PopFragment extends Fragment {
 
     private void addChildView() {
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
+        mChildView.setPadding(30, 10, 40, 10);
         if (mChildView != null) {
             fl.addView(mChildView, lp);
         }

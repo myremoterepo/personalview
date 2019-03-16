@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.example.personalview.pcomponents.GradientTextView;
 import com.example.personalview.pcomponents.RetTextView;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
@@ -28,15 +29,25 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
     @Override
     public void onCreateView(int type) {
         switch (type) {
-            case MainFragment.TYPE_RET_TV:
+            case MainFragment.TYPE_TV_RET:
                 PopFragment popFragment = PopFragment.newInstance("PersonalViews", "RetTextView");
                 RetTextView retTextView = new RetTextView(this);
                 retTextView.setText(R.string.android);
                 popFragment.setView(retTextView);
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(android.R.id.content, popFragment, TAG_POP_FRAG);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                FragmentTransaction transRet = getSupportFragmentManager().beginTransaction();
+                transRet.replace(android.R.id.content, popFragment, TAG_POP_FRAG);
+                transRet.addToBackStack(null);
+                transRet.commit();
+                break;
+            case MainFragment.TYPE_TV_GRADIENT:
+                PopFragment gradientFragment = PopFragment.newInstance("PersonnalViews", "LinearGradientTextView");
+                GradientTextView gradientTextView = new GradientTextView(this);
+                gradientTextView.setText(getString(R.string.gradient_tv));
+                gradientFragment.setView(gradientTextView);
+                FragmentTransaction transGradient = getSupportFragmentManager().beginTransaction();
+                transGradient.replace(android.R.id.content, gradientFragment, TAG_POP_FRAG);
+                transGradient.addToBackStack(null);
+                transGradient.commit();
                 break;
             default:
                 break;

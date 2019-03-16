@@ -18,12 +18,13 @@ import android.widget.TextView;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static final int TYPE_RET_TV = 0;
+    public static final int TYPE_TV_RET = 0;
+    public static final int TYPE_TV_GRADIENT = 1;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,16 +69,10 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the common_title for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-        view.findViewById(R.id.btn_ret).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.onCreateView(TYPE_RET_TV);
-                }
-            }
-        });
-        ((TextView)(view.findViewById(R.id.tv_title))).setText(mParam1);
-        ((TextView)(view.findViewById(R.id.tv_description))).setText(mParam2);
+        view.findViewById(R.id.btn_ret).setOnClickListener(this);
+        view.findViewById(R.id.btn_gradient).setOnClickListener(this);
+        ((TextView) (view.findViewById(R.id.tv_title))).setText(mParam1);
+        ((TextView) (view.findViewById(R.id.tv_description))).setText(mParam2);
         return view;
     }
 
@@ -96,6 +91,25 @@ public class MainFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_ret:
+                if (mListener != null) {
+                    mListener.onCreateView(TYPE_TV_RET);
+                }
+                break;
+            case R.id.btn_gradient:
+                if (mListener != null) {
+                    mListener.onCreateView(TYPE_TV_GRADIENT);
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
     /**
