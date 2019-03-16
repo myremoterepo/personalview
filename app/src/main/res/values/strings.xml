@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">personalview</string>
+    <string name="tv_ret">RetTextView</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="android">Android</string>
 </resources>

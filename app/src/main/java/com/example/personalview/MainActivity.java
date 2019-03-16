@@ -1,13 +1,50 @@
 package com.example.personalview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.personalview.pcomponents.RetTextView;
+
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
+    private static final String TAG_POP_FRAG = "pop";
+    public static final String TAG_MAIN_FRAG = "main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        setContentView(R.common_title.activity_main);//use android.R.id.content, a framelayout
+
+        if (savedInstanceState == null) {
+            MainFragment mainFragment = MainFragment.newInstance("PersonalViews", "ViewList");
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(android.R.id.content, mainFragment, TAG_MAIN_FRAG);
+            transaction.commit();
+        }
+    }
+
+    @Override
+    public void onCreateView(int type) {
+        switch (type) {
+            case MainFragment.TYPE_RET_TV:
+                PopFragment popFragment = PopFragment.newInstance("PersonalViews", "RetTextView");
+                RetTextView retTextView = new RetTextView(this);
+                retTextView.setText(R.string.android);
+                popFragment.setView(retTextView);
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, popFragment, TAG_POP_FRAG);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
