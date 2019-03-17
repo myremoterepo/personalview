@@ -11,13 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.TextView;
+
+import com.example.personalview.pcomponents.TopBar;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PopFragment extends Fragment {
+public class PopFragment extends Fragment implements TopBar.TopBarClickListener {
     private static final String TAG = PopFragment.class.getSimpleName();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -63,10 +64,12 @@ public class PopFragment extends Fragment {
         Log.d(TAG, "onCreateView");
         // Inflate the common_title for this fragment
         View view = inflater.inflate(R.layout.fragment_pop, container, false);
+        TopBar topBar = view.findViewById(R.id.top_bar);
+        topBar.setBtnVisible(1, false);
+        topBar.setTitle(mParam1 + " " + mParam2);
+        topBar.setClickListener(this);
         fl = view.findViewById(R.id.fl_parent);
         addChildView();
-        ((TextView)(view.findViewById(R.id.tv_description))).setText(mParam2);
-        ((TextView)(view.findViewById(R.id.tv_title))).setText(mParam1);
         return view;
     }
 
@@ -102,5 +105,15 @@ public class PopFragment extends Fragment {
     public void onDetach() {
         Log.d(TAG, "onDetach");
         super.onDetach();
+    }
+
+    @Override
+    public void leftClick() {
+        Log.d(TAG, "leftClick");
+    }
+
+    @Override
+    public void rightClick() {
+        Log.d(TAG, "rightClick");
     }
 }

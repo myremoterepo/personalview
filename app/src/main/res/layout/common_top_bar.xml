@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.personalview.pcomponents.TopBar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    custom:leftBackground="@color/colorPrimary"
+    custom:leftText="Back"
+    custom:leftTextColor="#FFFFFF"
+    custom:rightBackground="@color/colorPrimary"
+    custom:rightText="More"
+    custom:rightTextColor="#FFFFFF"
+    custom:title="标题"
+    custom:titleBackground="@color/colorAccent"
+    custom:titleTextColor="#123412"
+    custom:titleTextSize="3sp" />
+

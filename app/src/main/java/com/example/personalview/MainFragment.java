@@ -7,7 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.example.personalview.pcomponents.TopBar;
 
 
 /**
@@ -18,7 +19,7 @@ import android.widget.TextView;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment implements View.OnClickListener {
+public class MainFragment extends Fragment implements View.OnClickListener, TopBar.TopBarClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -71,8 +72,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         view.findViewById(R.id.btn_ret).setOnClickListener(this);
         view.findViewById(R.id.btn_gradient).setOnClickListener(this);
-        ((TextView) (view.findViewById(R.id.tv_title))).setText(mParam1);
-        ((TextView) (view.findViewById(R.id.tv_description))).setText(mParam2);
+        TopBar topBar = view.findViewById(R.id.top_bar);
+        topBar.setBtnVisible(1, false);
+        topBar.setTitle(mParam1 + " " + mParam2);
+        topBar.setClickListener(this);
         return view;
     }
 
@@ -110,6 +113,16 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void leftClick() {
+        Log.d("fan", "leftClick");
+    }
+
+    @Override
+    public void rightClick() {
+        Log.d("fan", "rightClick");
     }
 
     /**
