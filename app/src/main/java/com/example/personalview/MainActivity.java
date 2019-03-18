@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.example.personalview.pcomponents.AudioHistogram;
 import com.example.personalview.pcomponents.GradientTextView;
 import com.example.personalview.pcomponents.RetTextView;
 import com.example.personalview.pcomponents.CircleScaleView;
@@ -60,6 +61,15 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transScale.replace(android.R.id.content, scaleFragment, TAG_POP_FRAG);
                 transScale.addToBackStack(null);
                 transScale.commit();
+            case MainFragment.TYPE_HISTOGRAM:
+                PopFragment histogramFragment = PopFragment.newInstance("PersonnalViews", "AudioHistogram");
+                AudioHistogram audioHistogram = new AudioHistogram(this);
+                histogramFragment.setView(audioHistogram);
+                FragmentTransaction transHistogram = getSupportFragmentManager().beginTransaction();
+                transHistogram.replace(android.R.id.content, histogramFragment, TAG_POP_FRAG);
+                transHistogram.addToBackStack(null);
+                transHistogram.commit();
+                break;
             default:
                 break;
         }

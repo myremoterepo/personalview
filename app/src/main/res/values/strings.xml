@@ -8,4 +8,5 @@
     <string name="tv_gradient">LinearGradientTextView</string>
     <string name="gradient_tv">GradientAndroid</string>
     <string name="scale_view">ScaleView</string>
+    <string name="audio_histogram">AudioHistogram</string>
 </resources>
