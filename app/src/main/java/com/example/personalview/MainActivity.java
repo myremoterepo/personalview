@@ -51,16 +51,16 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transGradient.addToBackStack(null);
                 transGradient.commit();
                 break;
-
             case MainFragment.TYPE_VIEW_SCALE:
                 PopFragment scaleFragment = PopFragment.newInstance("PersonnalViews", "ScaleView");
                 CircleScaleView scaleView = new CircleScaleView(this);
-                scaleView.setSweepAngle(70);
+                scaleView.setSweepAngle(90);
                 scaleFragment.setView(scaleView);
                 FragmentTransaction transScale = getSupportFragmentManager().beginTransaction();
                 transScale.replace(android.R.id.content, scaleFragment, TAG_POP_FRAG);
                 transScale.addToBackStack(null);
                 transScale.commit();
+                break;
             case MainFragment.TYPE_HISTOGRAM:
                 PopFragment histogramFragment = PopFragment.newInstance("PersonnalViews", "AudioHistogram");
                 AudioHistogram audioHistogram = new AudioHistogram(this);
