@@ -7,4 +7,5 @@
     <string name="android">Android</string>
     <string name="tv_gradient">LinearGradientTextView</string>
     <string name="gradient_tv">GradientAndroid</string>
+    <string name="scale_view">ScaleView</string>
 </resources>

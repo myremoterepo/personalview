@@ -26,6 +26,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
     private static final String ARG_PARAM2 = "param2";
     public static final int TYPE_TV_RET = 0;
     public static final int TYPE_TV_GRADIENT = 1;
+    public static final int TYPE_VIEW_SCALE = 2;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,6 +73,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         view.findViewById(R.id.btn_ret).setOnClickListener(this);
         view.findViewById(R.id.btn_gradient).setOnClickListener(this);
+        view.findViewById(R.id.btn_scale_view).setOnClickListener(this);
         TopBar topBar = view.findViewById(R.id.top_bar);
         topBar.setBtnVisible(1, false);
         topBar.setTitle(mParam1 + " " + mParam2);
@@ -109,7 +111,11 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
                     mListener.onCreateView(TYPE_TV_GRADIENT);
                 }
                 break;
-
+            case R.id.btn_scale_view:
+                if (mListener != null) {
+                    mListener.onCreateView(TYPE_VIEW_SCALE);
+                }
+                break;
             default:
                 break;
         }
@@ -117,7 +123,9 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
 
     @Override
     public void leftClick() {
-        Log.d("fan", "leftClick");
+        if (getActivity() != null) {
+            getActivity().finish();
+        }
     }
 
     @Override

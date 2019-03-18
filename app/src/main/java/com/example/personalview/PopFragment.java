@@ -109,7 +109,9 @@ public class PopFragment extends Fragment implements TopBar.TopBarClickListener 
 
     @Override
     public void leftClick() {
-        Log.d(TAG, "leftClick");
+        if (getActivity() != null) {
+            getActivity().onBackPressed();
+        }
     }
 
     @Override

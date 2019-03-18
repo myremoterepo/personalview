@@ -7,6 +7,7 @@ import android.view.Window;
 
 import com.example.personalview.pcomponents.GradientTextView;
 import com.example.personalview.pcomponents.RetTextView;
+import com.example.personalview.pcomponents.CircleScaleView;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
     private static final String TAG_POP_FRAG = "pop";
@@ -49,6 +50,16 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transGradient.addToBackStack(null);
                 transGradient.commit();
                 break;
+
+            case MainFragment.TYPE_VIEW_SCALE:
+                PopFragment scaleFragment = PopFragment.newInstance("PersonnalViews", "ScaleView");
+                CircleScaleView scaleView = new CircleScaleView(this);
+                scaleView.setSweepAngle(70);
+                scaleFragment.setView(scaleView);
+                FragmentTransaction transScale = getSupportFragmentManager().beginTransaction();
+                transScale.replace(android.R.id.content, scaleFragment, TAG_POP_FRAG);
+                transScale.addToBackStack(null);
+                transScale.commit();
             default:
                 break;
         }
