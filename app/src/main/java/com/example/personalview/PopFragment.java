@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -63,13 +64,18 @@ public class PopFragment extends Fragment implements TopBar.TopBarClickListener 
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         // Inflate the common_title for this fragment
-        View view = inflater.inflate(R.layout.fragment_pop, container, false);
-        TopBar topBar = view.findViewById(R.id.top_bar);
-        topBar.setBtnVisible(1, false);
-        topBar.setTitle(mParam1 + " " + mParam2);
-        topBar.setClickListener(this);
-        fl = view.findViewById(R.id.fl_parent);
-        addChildView();
+        View view;
+        if (TextUtils.equals(mParam2, "ScrollView")) {
+            view = inflater.inflate(R.layout.simple_scroll_view, container, false);
+        } else {
+            view = inflater.inflate(R.layout.fragment_pop, container, false);
+            TopBar topBar = view.findViewById(R.id.top_bar);
+            topBar.setBtnVisible(1, false);
+            topBar.setTitle(mParam1 + " " + mParam2);
+            topBar.setClickListener(this);
+            fl = view.findViewById(R.id.fl_parent);
+            addChildView();
+        }
         return view;
     }
 

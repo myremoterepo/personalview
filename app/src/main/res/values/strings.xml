@@ -9,4 +9,5 @@
     <string name="gradient_tv">GradientAndroid</string>
     <string name="scale_view">ScaleView</string>
     <string name="audio_histogram">AudioHistogram</string>
+    <string name="scroll_view">ScrollView</string>
 </resources>

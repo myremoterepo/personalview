@@ -28,6 +28,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
     public static final int TYPE_TV_GRADIENT = 1;
     public static final int TYPE_VIEW_SCALE = 2;
     public static final int TYPE_HISTOGRAM = 3;
+    public static final int TYPE_SCROLL_VIEW = 4;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -76,6 +77,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
         view.findViewById(R.id.btn_gradient).setOnClickListener(this);
         view.findViewById(R.id.btn_scale_view).setOnClickListener(this);
         view.findViewById(R.id.btn_audio_histogram).setOnClickListener(this);
+        view.findViewById(R.id.btn_scroll_view).setOnClickListener(this);
         TopBar topBar = view.findViewById(R.id.top_bar);
         topBar.setBtnVisible(1, false);
         topBar.setTitle(mParam1 + " " + mParam2);
@@ -121,6 +123,11 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
             case R.id.btn_audio_histogram:
                 if (mListener != null) {
                     mListener.onCreateView(TYPE_HISTOGRAM);
+                }
+                break;
+            case R.id.btn_scroll_view:
+                if (mListener != null) {
+                    mListener.onCreateView(TYPE_SCROLL_VIEW);
                 }
                 break;
             default:

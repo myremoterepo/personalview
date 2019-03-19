@@ -3,12 +3,13 @@ package com.example.personalview;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Window;
 
 import com.example.personalview.pcomponents.AudioHistogram;
+import com.example.personalview.pcomponents.CircleScaleView;
 import com.example.personalview.pcomponents.GradientTextView;
 import com.example.personalview.pcomponents.RetTextView;
-import com.example.personalview.pcomponents.CircleScaleView;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
     private static final String TAG_POP_FRAG = "pop";
@@ -69,6 +70,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transHistogram.replace(android.R.id.content, histogramFragment, TAG_POP_FRAG);
                 transHistogram.addToBackStack(null);
                 transHistogram.commit();
+                break;
+            case MainFragment.TYPE_SCROLL_VIEW:
+                Log.d("fan", "create ScrollFragmen");
+                PopFragment scrollFrag = PopFragment.newInstance("PersonnalViews", "ScrollView");
+                FragmentTransaction transScroll = getSupportFragmentManager().beginTransaction();
+                transScroll.replace(android.R.id.content, scrollFrag, TAG_POP_FRAG);
+                transScroll.addToBackStack(null);
+                transScroll.commit();
                 break;
             default:
                 break;

@@ -32,4 +32,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/audio_histogram" />
+
+    <Button
+        android:id="@+id/btn_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/scroll_view" />
 </LinearLayout>
