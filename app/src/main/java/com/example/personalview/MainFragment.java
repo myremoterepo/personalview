@@ -7,8 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.personalview.pcomponents.TopBar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,7 +24,7 @@ import com.example.personalview.pcomponents.TopBar;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment implements View.OnClickListener, TopBar.TopBarClickListener {
+public class MainFragment extends Fragment implements TopBar.TopBarClickListener, MainAdapter.MainAdapterClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -73,11 +78,18 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
                              Bundle savedInstanceState) {
         // Inflate the common_title for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-        view.findViewById(R.id.btn_ret).setOnClickListener(this);
-        view.findViewById(R.id.btn_gradient).setOnClickListener(this);
-        view.findViewById(R.id.btn_scale_view).setOnClickListener(this);
-        view.findViewById(R.id.btn_audio_histogram).setOnClickListener(this);
-        view.findViewById(R.id.btn_scroll_view).setOnClickListener(this);
+        ListView listView = view.findViewById(R.id.list_content);
+        MainAdapter mainAdapter = new MainAdapter(getContext());
+        List<String> btns = new ArrayList<>();
+        btns.add("Ret Text View");
+        btns.add("Gradient Text View");
+        btns.add("Scale View");
+        btns.add("Audio Histogram");
+        btns.add("Simple Scroll View");
+
+        mainAdapter.setBtns(btns);
+        mainAdapter.setListItemListener(this);
+        listView.setAdapter(mainAdapter);
         TopBar topBar = view.findViewById(R.id.top_bar);
         topBar.setBtnVisible(1, false);
         topBar.setTitle(mParam1 + " " + mParam2);
@@ -103,39 +115,6 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_ret:
-                if (mListener != null) {
-                    mListener.onCreateView(TYPE_TV_RET);
-                }
-                break;
-            case R.id.btn_gradient:
-                if (mListener != null) {
-                    mListener.onCreateView(TYPE_TV_GRADIENT);
-                }
-                break;
-            case R.id.btn_scale_view:
-                if (mListener != null) {
-                    mListener.onCreateView(TYPE_VIEW_SCALE);
-                }
-                break;
-            case R.id.btn_audio_histogram:
-                if (mListener != null) {
-                    mListener.onCreateView(TYPE_HISTOGRAM);
-                }
-                break;
-            case R.id.btn_scroll_view:
-                if (mListener != null) {
-                    mListener.onCreateView(TYPE_SCROLL_VIEW);
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    @Override
     public void leftClick() {
         if (getActivity() != null) {
             getActivity().finish();
@@ -145,6 +124,33 @@ public class MainFragment extends Fragment implements View.OnClickListener, TopB
     @Override
     public void rightClick() {
         Log.d("fan", "rightClick");
+    }
+
+    @Override
+    public void onBtnClick(int position) {
+        Toast.makeText(getContext(), "click " + position, Toast.LENGTH_SHORT).show();
+        if (mListener == null) {
+            return;
+        }
+        switch (position) {
+            case 0:
+                mListener.onCreateView(TYPE_TV_RET);
+                break;
+            case 1:
+                mListener.onCreateView(TYPE_TV_GRADIENT);
+                break;
+            case 2:
+                mListener.onCreateView(TYPE_VIEW_SCALE);
+                break;
+            case 3:
+                mListener.onCreateView(TYPE_HISTOGRAM);
+                break;
+            case 4:
+                mListener.onCreateView(TYPE_SCROLL_VIEW);
+                break;
+            default:
+                break;
+        }
     }
 
     /**

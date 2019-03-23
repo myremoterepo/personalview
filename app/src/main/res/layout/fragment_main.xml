@@ -5,38 +5,10 @@
     android:orientation="vertical">
     <include layout="@layout/common_top_bar"/>
 
-    <Button
-        android:id="@+id/btn_ret"
+    <ListView
+        android:id="@+id/list_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/tv_ret" />
+        android:scrollbars="none"/>
 
-    <Button
-        android:id="@+id/btn_gradient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/tv_gradient" />
-
-    <Button
-        android:id="@+id/btn_scale_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/scale_view" />
-
-    <Button
-        android:id="@+id/btn_audio_histogram"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/audio_histogram" />
-
-    <Button
-        android:id="@+id/btn_scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/scroll_view" />
 </LinearLayout>
