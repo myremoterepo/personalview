@@ -86,6 +86,14 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
         btns.add("Scale View");
         btns.add("Audio Histogram");
         btns.add("Simple Scroll View");
+        btns.add("Z");
+        btns.add("Z");
+        btns.add("Z");
+        btns.add("Z");
+        btns.add("Z");
+        btns.add("Z");
+        btns.add("Z");
+        btns.add("Z");
 
         mainAdapter.setBtns(btns);
         mainAdapter.setListItemListener(this);
