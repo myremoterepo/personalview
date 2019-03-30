@@ -34,6 +34,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
     public static final int TYPE_VIEW_SCALE = 2;
     public static final int TYPE_HISTOGRAM = 3;
     public static final int TYPE_SCROLL_VIEW = 4;
+    public static final int TYPE_DRAG_VIEW = 5;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -86,7 +87,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
         btns.add("Scale View");
         btns.add("Audio Histogram");
         btns.add("Simple Scroll View");
-        btns.add("Z");
+        btns.add("Simple Drag View");
         btns.add("Z");
         btns.add("Z");
         btns.add("Z");
@@ -155,6 +156,9 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
                 break;
             case 4:
                 mListener.onCreateView(TYPE_SCROLL_VIEW);
+                break;
+            case 5:
+                mListener.onCreateView(TYPE_DRAG_VIEW);
                 break;
             default:
                 break;

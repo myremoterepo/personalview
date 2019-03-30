@@ -79,6 +79,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transScroll.addToBackStack(null);
                 transScroll.commit();
                 break;
+            case MainFragment.TYPE_DRAG_VIEW:
+                PopFragment dragFrag = PopFragment.newInstance("PersonnalViews", "DragView");
+                FragmentTransaction transDrag = getSupportFragmentManager().beginTransaction();
+                transDrag.replace(android.R.id.content, dragFrag, TAG_POP_FRAG);
+                transDrag.addToBackStack(null);
+                transDrag.commit();
+                break;
             default:
                 break;
         }
