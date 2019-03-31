@@ -86,6 +86,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transDrag.addToBackStack(null);
                 transDrag.commit();
                 break;
+            case MainFragment.TYPE_SLIDING_PANEL:
+                PopFragment slidingFrag = PopFragment.newInstance("PersonnalViews", "SlidingPanel");
+                FragmentTransaction transSliding = getSupportFragmentManager().beginTransaction();
+                transSliding.replace(android.R.id.content, slidingFrag, TAG_POP_FRAG);
+                transSliding.addToBackStack(null);
+                transSliding.commit();
+                break;
             default:
                 break;
         }
