@@ -36,6 +36,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
     public static final int TYPE_SCROLL_VIEW = 4;
     public static final int TYPE_DRAG_VIEW = 5;
     public static final int TYPE_SLIDING_PANEL = 6;
+    public static final int TYPE_WATCH_VIEW = 7;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -90,7 +91,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
         btns.add("Simple Scroll View");
         btns.add("Simple Drag View");
         btns.add("Simple Sliding Panel Layout");
-        btns.add("Z");
+        btns.add("Watch View");
         btns.add("Z");
         btns.add("Z");
         btns.add("Z");
@@ -163,6 +164,9 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
                 break;
             case 6:
                 mListener.onCreateView(TYPE_SLIDING_PANEL);
+                break;
+            case 7:
+                mListener.onCreateView(TYPE_WATCH_VIEW);
                 break;
             default:
                 break;

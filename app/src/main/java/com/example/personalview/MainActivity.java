@@ -93,6 +93,12 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transSliding.addToBackStack(null);
                 transSliding.commit();
                 break;
+            case MainFragment.TYPE_WATCH_VIEW:
+                PopFragment watchFrag = PopFragment.newInstance("PersonnalViews", "WatchView");
+                FragmentTransaction transWatch = getSupportFragmentManager().beginTransaction();
+                transWatch.replace(android.R.id.content, watchFrag, TAG_POP_FRAG);
+                transWatch.addToBackStack(null);
+                transWatch.commit();
             default:
                 break;
         }

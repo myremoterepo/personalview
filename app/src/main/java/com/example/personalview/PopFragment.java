@@ -71,6 +71,8 @@ public class PopFragment extends Fragment implements TopBar.TopBarClickListener 
             view = inflater.inflate(R.layout.simple_drag_view, container, false);
         } else if (TextUtils.equals(mParam2, "SlidingPanel")) {
             view = inflater.inflate(R.layout.simple_sliding_panel_layout, container, false);
+        } else if (TextUtils.equals(mParam2, "WatchView")) {
+            view = inflater.inflate(R.layout.ly_watch_view, container, false);
         } else {
             view = inflater.inflate(R.layout.fragment_pop, container, false);
             TopBar topBar = view.findViewById(R.id.top_bar);
@@ -79,6 +81,7 @@ public class PopFragment extends Fragment implements TopBar.TopBarClickListener 
             topBar.setClickListener(this);
             fl = view.findViewById(R.id.fl_parent);
             addChildView();
+
         }
         return view;
     }
