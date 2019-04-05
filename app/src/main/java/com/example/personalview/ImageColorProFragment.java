@@ -17,7 +17,6 @@ import android.widget.SeekBar;
 
 /**
  * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
  * Use the {@link ImageColorProFragment#newInstance} factory method to
  * create an instance of this fragment.
  */

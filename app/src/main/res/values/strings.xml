@@ -10,4 +10,6 @@
     <string name="scale_view">ScaleView</string>
     <string name="audio_histogram">AudioHistogram</string>
     <string name="scroll_view">ScrollView</string>
+    <string name="change">Change</string>
+    <string name="reset">Reset</string>
 </resources>

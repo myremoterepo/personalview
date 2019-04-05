@@ -3,7 +3,6 @@ package com.example.personalview;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Window;
 
 import com.example.personalview.pcomponents.AudioHistogram;
@@ -14,6 +13,8 @@ import com.example.personalview.pcomponents.RetTextView;
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
     private static final String TAG_POP_FRAG = "pop";
     public static final String TAG_MAIN_FRAG = "main";
+    public static final String TAG_SEEK_COLOR_MATRIX_FRAG = "seek-color-matrix";
+    public static final String TAG_GRID_COLOR_MATRIX_FRAG = "grid-color-matrix";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transHistogram.commit();
                 break;
             case MainFragment.TYPE_SCROLL_VIEW:
-                Log.d("fan", "create ScrollFragmen");
                 PopFragment scrollFrag = PopFragment.newInstance("PersonnalViews", "ScrollView");
                 FragmentTransaction transScroll = getSupportFragmentManager().beginTransaction();
                 transScroll.replace(android.R.id.content, scrollFrag, TAG_POP_FRAG);
@@ -102,9 +102,16 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
             case MainFragment.TYPE_IMAGE_COLOR_PROPERTY:
                 ImageColorProFragment imageFrag = ImageColorProFragment.newInstance("PersonnalViews", "ImageColorPro");
                 FragmentTransaction transImage = getSupportFragmentManager().beginTransaction();
-                transImage.replace(android.R.id.content, imageFrag, TAG_POP_FRAG);
+                transImage.replace(android.R.id.content, imageFrag, TAG_SEEK_COLOR_MATRIX_FRAG);
                 transImage.addToBackStack(null);
                 transImage.commit();
+                break;
+            case MainFragment.TYPE_GRID_COLOR_MATRIX:
+                GridMatrixFragment gridMatrixFragment = GridMatrixFragment.newInstance("PersonalView", "GridColorMatrix");
+                FragmentTransaction transGrid = getSupportFragmentManager().beginTransaction();
+                transGrid.replace(android.R.id.content, gridMatrixFragment, TAG_GRID_COLOR_MATRIX_FRAG);
+                transGrid.addToBackStack(null);
+                transGrid.commit();
                 break;
             default:
                 break;
