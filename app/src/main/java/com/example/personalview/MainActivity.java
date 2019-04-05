@@ -113,6 +113,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transGrid.addToBackStack(null);
                 transGrid.commit();
                 break;
+            case MainFragment.TYPE_FLAG_WAVE:
+                PopFragment waveFrag = PopFragment.newInstance("PersonnalViews", "FlagWave");
+                FragmentTransaction transWave = getSupportFragmentManager().beginTransaction();
+                transWave.replace(android.R.id.content, waveFrag, TAG_POP_FRAG);
+                transWave.addToBackStack(null);
+                transWave.commit();
+                break;
             default:
                 break;
         }

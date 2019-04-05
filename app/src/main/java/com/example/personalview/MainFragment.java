@@ -39,6 +39,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
     public static final int TYPE_WATCH_VIEW = 7;
     public static final int TYPE_IMAGE_COLOR_PROPERTY = 8;
     public static final int TYPE_GRID_COLOR_MATRIX = 9;
+    public static final int TYPE_FLAG_WAVE = 10;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -96,7 +97,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
         btns.add("Watch View");
         btns.add("Image Color Property");
         btns.add("Grid Color Matrix");
-        btns.add("Z");
+        btns.add("FLAG WAVE");
         btns.add("Z");
         btns.add("Z");
 
@@ -175,6 +176,9 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
                 break;
             case 9:
                 mListener.onCreateView(TYPE_GRID_COLOR_MATRIX);
+                break;
+            case 10:
+                mListener.onCreateView(TYPE_FLAG_WAVE);
                 break;
             default:
                 break;
