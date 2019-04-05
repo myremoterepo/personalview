@@ -99,6 +99,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transWatch.replace(android.R.id.content, watchFrag, TAG_POP_FRAG);
                 transWatch.addToBackStack(null);
                 transWatch.commit();
+            case MainFragment.TYPE_IMAGE_COLOR_PROPERTY:
+                ImageColorProFragment imageFrag = ImageColorProFragment.newInstance("PersonnalViews", "ImageColorPro");
+                FragmentTransaction transImage = getSupportFragmentManager().beginTransaction();
+                transImage.replace(android.R.id.content, imageFrag, TAG_POP_FRAG);
+                transImage.addToBackStack(null);
+                transImage.commit();
+                break;
             default:
                 break;
         }

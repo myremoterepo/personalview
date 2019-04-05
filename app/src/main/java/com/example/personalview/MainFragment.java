@@ -37,6 +37,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
     public static final int TYPE_DRAG_VIEW = 5;
     public static final int TYPE_SLIDING_PANEL = 6;
     public static final int TYPE_WATCH_VIEW = 7;
+    public static final int TYPE_IMAGE_COLOR_PROPERTY = 8;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -92,7 +93,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
         btns.add("Simple Drag View");
         btns.add("Simple Sliding Panel Layout");
         btns.add("Watch View");
-        btns.add("Z");
+        btns.add("Image Color Property");
         btns.add("Z");
         btns.add("Z");
         btns.add("Z");
@@ -167,6 +168,9 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
                 break;
             case 7:
                 mListener.onCreateView(TYPE_WATCH_VIEW);
+                break;
+            case 8:
+                mListener.onCreateView(TYPE_IMAGE_COLOR_PROPERTY);
                 break;
             default:
                 break;

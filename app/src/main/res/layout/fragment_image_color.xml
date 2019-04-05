@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageColorProFragment">
+
+    <ImageView
+        android:id="@+id/img_color_pro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <SeekBar
+        android:id="@+id/seek_bar_hue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_color_pro"
+        android:layout_marginTop="10dp"
+        android:max="255"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progress="127" />
+
+    <SeekBar
+        android:id="@+id/seek_bar_saturation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seek_bar_hue"
+        android:layout_marginTop="10dp"
+        android:max="255"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progress="127" />
+
+    <SeekBar
+        android:id="@+id/seek_bar_lum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seek_bar_saturation"
+        android:layout_marginTop="10dp"
+        android:max="255"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progress="127" />
+
+</RelativeLayout>
