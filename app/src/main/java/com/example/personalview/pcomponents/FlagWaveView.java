@@ -12,14 +12,14 @@ import android.view.View;
 import com.example.personalview.R;
 
 public class FlagWaveView extends View {
-    private final int WIDTH = 200;
-    private final int HEIGHT = 200;
-    private int COUNT = (WIDTH + 1) * (HEIGHT + 1);
-    private float[] verts = new float[COUNT * 2];
+    private final int WIDTH = 200;// 横向网格数目
+    private final int HEIGHT = 200;// 纵向网格数目
+    private int COUNT = (WIDTH + 1) * (HEIGHT + 1);// 图像分块数目
+    private float[] verts = new float[COUNT * 2];// 每两位用来保存一个交织点的坐标：第一个x,第二个y
     private float[] orig = new float[COUNT * 2];
     private Bitmap bitmap;
-    private int A = 50;
-    private float k = 1;
+    private int A = 50;// 正弦函数振幅
+    private float k = 1;// 正弦函数周期
 
     public FlagWaveView(Context context) {
         super(context);
