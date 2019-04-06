@@ -52,6 +52,10 @@ public class DrawingTable extends SurfaceView implements SurfaceHolder.Callback,
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(10);
+
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+        this.setKeepScreenOn(true);
     }
 
     @Override
@@ -73,7 +77,20 @@ public class DrawingTable extends SurfaceView implements SurfaceHolder.Callback,
     @Override
     public void run() {
         while (mIsDrawing) {
+            long start = System.currentTimeMillis();
+
             draw();
+
+            long end = System.currentTimeMillis();
+
+            // 节省系统资源 50-100
+            if (end - start < 100) {
+                try {
+                    Thread.sleep(100 - (end - start));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
