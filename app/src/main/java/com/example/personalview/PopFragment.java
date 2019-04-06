@@ -75,7 +75,9 @@ public class PopFragment extends Fragment implements TopBar.TopBarClickListener 
             view = inflater.inflate(R.layout.ly_watch_view, container, false);
         } else if (TextUtils.equals(mParam2, "FlagWave")) {
             view = inflater.inflate(R.layout.flag_wave, container, false);
-        }else {
+        } else if (TextUtils.equals(mParam2, "XfermodeView")) {
+            view = inflater.inflate(R.layout.xfermode_view_lyt, container, false);
+        } else {
             view = inflater.inflate(R.layout.fragment_pop, container, false);
             TopBar topBar = view.findViewById(R.id.top_bar);
             topBar.setBtnVisible(1, false);

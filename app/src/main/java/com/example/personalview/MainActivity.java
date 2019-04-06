@@ -120,6 +120,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transWave.addToBackStack(null);
                 transWave.commit();
                 break;
+            case MainFragment.TYPE_XFERMODE_VIEW:
+                PopFragment xferFrag = PopFragment.newInstance("PersonnalViews", "XfermodeView");
+                FragmentTransaction transXfer = getSupportFragmentManager().beginTransaction();
+                transXfer.replace(android.R.id.content, xferFrag, TAG_POP_FRAG);
+                transXfer.addToBackStack(null);
+                transXfer.commit();
+                break;
             default:
                 break;
         }

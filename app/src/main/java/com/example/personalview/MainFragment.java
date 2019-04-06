@@ -40,6 +40,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
     public static final int TYPE_IMAGE_COLOR_PROPERTY = 8;
     public static final int TYPE_GRID_COLOR_MATRIX = 9;
     public static final int TYPE_FLAG_WAVE = 10;
+    public static final int TYPE_XFERMODE_VIEW = 11;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -98,7 +99,7 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
         btns.add("Image Color Property");
         btns.add("Grid Color Matrix");
         btns.add("FLAG WAVE");
-        btns.add("Z");
+        btns.add("Xfermode View");
         btns.add("Z");
 
         mainAdapter.setBtns(btns);
@@ -179,6 +180,9 @@ public class MainFragment extends Fragment implements TopBar.TopBarClickListener
                 break;
             case 10:
                 mListener.onCreateView(TYPE_FLAG_WAVE);
+                break;
+            case 11:
+                mListener.onCreateView(TYPE_XFERMODE_VIEW);
                 break;
             default:
                 break;
