@@ -127,6 +127,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 transXfer.addToBackStack(null);
                 transXfer.commit();
                 break;
+            case MainFragment.TYPE_DRAWING_TABLE:
+                PopFragment tableFrag = PopFragment.newInstance("PersonnalViews", "DrawingTable");
+                FragmentTransaction transTable = getSupportFragmentManager().beginTransaction();
+                transTable.replace(android.R.id.content, tableFrag, TAG_POP_FRAG);
+                transTable.addToBackStack(null);
+                transTable.commit();
+                break;
             default:
                 break;
         }
